@@ -4,456 +4,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#09070f">
-  <meta name="description" content="MATTYAS — mon univers personnel entre musique, projets et inspirations nocturnes.">
-  <title>MATTYAS — Mon univers</title>
-
-  <style>
-    :root {
-      --bg: #09070f;
-      --panel: #15101e;
-      --white: #f5efff;
-      --muted: #b8adc9;
-      --purple: #c9b2ff;
-      --line: #332541;
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background:
-        radial-gradient(ellipse at 50% 0%, #251735 0%, transparent 48%),
-        var(--bg);
-      color: var(--white);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.7;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1050px, 90%);
-      margin: auto;
-    }
-
-    header {
-      border-bottom: 1px solid #ffffff12;
-      background: #09070fe8;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(12px);
-    }
-
-    nav {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo {
-      font-weight: bold;
-      letter-spacing: 4px;
-      font-size: 19px;
-    }
-
-    .logo span {
-      color: var(--purple);
-    }
-
-    .links {
-      display: flex;
-      gap: 22px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .links a:hover {
-      color: var(--purple);
-    }
-
-    .hero {
-      min-height: 85vh;
-      display: flex;
-      align-items: center;
-      padding: 65px 0;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 35px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      color: var(--purple);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 12px;
-    }
-
-    h1 {
-      font-size: clamp(55px, 8vw, 100px);
-      line-height: 1;
-      letter-spacing: -5px;
-      margin: 22px 0;
-    }
-
-    h1 span {
-      color: var(--purple);
-    }
-
-    .intro {
-      max-width: 540px;
-      color: #d2c9dc;
-      font-size: 17px;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 12px 19px;
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      transition: 0.2s;
-    }
-
-    .button:hover {
-      border-color: var(--purple);
-      transform: translateY(-2px);
-    }
-
-    .button.main {
-      background: var(--purple);
-      color: #100b18;
-      font-weight: bold;
-    }
-
-    .moon-area {
-      min-height: 300px;
-      display: grid;
-      place-items: center;
-    }
-
-    .moon {
-      width: min(250px, 60vw);
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: radial-gradient(
-        circle at 30% 28%,
-        #fffaff,
-        #e2d1ff 25%,
-        #ad8cde 58%,
-        #5b407b 100%
-      );
-      box-shadow: 0 0 60px #a77bdf40,
-                  0 0 140px #8853bd25;
-      position: relative;
-    }
-
-    .moon::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 22px;
-      top: -9px;
-      border-radius: 50%;
-      background: #09070f;
-      opacity: 0.16;
-    }
-
-    section {
-      padding: 85px 0;
-    }
-
-    .section-label {
-      color: var(--purple);
-      font-size: 12px;
-      letter-spacing: 3px;
-    }
-
-    h2 {
-      font-size: clamp(30px, 5vw, 48px);
-      line-height: 1.2;
-      margin: 12px 0;
-      letter-spacing: -1px;
-    }
-
-    .subtext {
-      color: var(--muted);
-      max-width: 650px;
-    }
-
-    .about {
-      display: grid;
-      grid-template-columns: 0.6fr 1.4fr;
-      gap: 30px;
-      background: linear-gradient(135deg, #1d1429, #100c17);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 35px;
-      margin-top: 30px;
-    }
-
-    .kanji {
-      color: var(--purple);
-      font-size: 75px;
-    }
-
-    .about p {
-      color: #d2c9dc;
-      margin-top: 0;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 17px;
-      margin-top: 30px;
-    }
-
-    .card {
-      padding: 25px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: var(--panel);
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: var(--purple);
-    }
-
-    .card-icon {
-      color: var(--purple);
-      font-size: 25px;
-    }
-
-    .card h3 {
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .music {
-      margin-top: 30px;
-      padding: 30px;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      background: linear-gradient(120deg, #241832, #100c17);
-    }
-
-    .music small {
-      color: var(--purple);
-      letter-spacing: 2px;
-    }
-
-    .music h3 {
-      font-size: 36px;
-      margin: 5px 0;
-    }
-
-    footer {
-      border-top: 1px solid #ffffff12;
-      padding: 25px 0;
-      color: #93869f;
-      font-size: 13px;
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 700px) {
-      .links { gap: 12px; font-size: 12px; }
-      .hero-grid { grid-template-columns: 1fr; }
-      .moon-area { min-height: 230px; }
-      .moon { width: 190px; }
-      h1 { letter-spacing: -3px; }
-      .about { grid-template-columns: 1fr; padding: 25px; }
-      .cards { grid-template-columns: 1fr; }
-      section { padding: 60px 0; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; }
-    }
-  </style>
+  <meta name="theme-color" content="#08060D">
+  <meta name="description" content="Bienvenue dans l'univers nocturne de MATTYAS.">
+  <title>MATTYAS — Into the night</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header>
-    <nav class="container">
-      <a class="logo" href="#accueil">MATTYAS<span>.</span></a>
+  <header class="navbar">
+    <a class="logo" href="index.html">MATTYAS<span>🌙</span></a>
 
-      <div class="links">
-        <a href="#moi">Moi</a>
-        <a href="#univers">Univers</a>
-        <a href="#creations">Créations</a>
-      </div>
+    <nav aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="apropos.html">À propos</a>
+      <a href="musique.html">Musique</a>
+      <a href="mangas.html">Mangas</a>
+      <a href="projets.html">Projets</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero" id="accueil">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Bienvenue dans mon univers</div>
+    <section class="hero reveal">
+      <div class="moon" aria-hidden="true"></div>
 
-          <h1>Moi, c’est<br><span>Mattyas.</span></h1>
+      <div class="hero-content">
+        <p class="eyebrow">BLACK SKY · VIOLET LIGHT · QUIET MIND</p>
 
-          <p class="intro">
-            Je crée, j’imagine et je construis mon propre univers.
-            Entre musique, projets personnels et inspirations japonaises,
-            MATTYAS est un espace où je peux explorer mes idées librement,
-            à ma manière.
-          </p>
+        <h1>UN UNIVERS,<br>APRÈS MINUIT.</h1>
 
-          <div class="buttons">
-            <a class="button main" href="#moi">Un peu de moi ↘</a>
-            <a class="button" href="#creations">Mes créations ↗</a>
-          </div>
+        <p class="subtitle">Into the night.</p>
+
+        <p class="intro">
+          Bienvenue dans mon univers.
+          Un espace où se rencontrent mes créations,
+          mes projets et ce qui m'inspire.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="button primary" href="projets.html">Explorer l'univers</a>
+          <a class="button secondary" href="musique.html">Écouter ma musique</a>
         </div>
+      </div>
 
-        <div class="moon-area" aria-label="Lune violette">
-          <div class="moon"></div>
-        </div>
+      <div class="pagoda" aria-hidden="true">鳥居</div>
+      <p class="scroll-hint">SCROLL TO DISCOVER ↓</p>
+    </section>
+
+    <section class="section reveal">
+      <p class="eyebrow">01 — EXPLORATION</p>
+      <h2>Un monde à découvrir.</h2>
+
+      <div class="card-grid">
+        <a class="card" href="musique.html">
+          <span class="card-icon">♫</span>
+          <h3>Musique</h3>
+          <p>Mes créations, mes sons et mes ambiances nocturnes.</p>
+          <span class="card-link">Découvrir ↗</span>
+        </a>
+
+        <a class="card" href="projets.html">
+          <span class="card-icon">⌘</span>
+          <h3>Projets</h3>
+          <p>Les univers et les expériences que je construis.</p>
+          <span class="card-link">Explorer ↗</span>
+        </a>
+
+        <a class="card" href="mangas.html">
+          <span class="card-icon">月</span>
+          <h3>Mangas</h3>
+          <p>Un espace consacré aux œuvres qui m'inspirent.</p>
+          <span class="card-link">Entrer ↗</span>
+        </a>
       </div>
     </section>
 
-    <section id="moi">
-      <div class="container">
-        <div class="section-label">01 — DERRIÈRE LE NOM</div>
-        <h2>Un espace qui me ressemble.</h2>
-        <p class="subtext">
-          MATTYAS n’est pas seulement un pseudo :
-          c’est le nom que je donne à mes idées et aux choses que je construis.
+    <section class="featured reveal">
+      <div>
+        <p class="eyebrow">02 — NIGHT SESSION</p>
+        <h2>Une nuit en boucle.</h2>
+        <p>
+          23h53 — une création nocturne autour du manque,
+          de l'attente et des émotions qui restent après minuit.
         </p>
-
-        <div class="about">
-          <div>
-            <div class="kanji">月</div>
-            <div class="section-label">UNE IDÉE À LA FOIS.</div>
-          </div>
-
-          <div>
-            <p>
-              J’aime imaginer des univers, tester des idées et leur donner
-              une forme concrète — que ce soit avec de la musique,
-              du code ou un nouveau projet.
-            </p>
-            <p>
-              Je suis inspiré par l’atmosphère de la nuit,
-              les lumières des villes japonaises et les ambiances
-              qui laissent une place à l’imagination.
-            </p>
-            <p>
-              Ce site évoluera avec moi. Il rassemble ce que je crée,
-              ce que j’explore et ce que j’ai envie de partager.
-            </p>
-          </div>
-        </div>
+        <a class="button primary" href="musique.html">Découvrir 23h53</a>
       </div>
-    </section>
 
-    <section id="univers">
-      <div class="container">
-        <div class="section-label">02 — MON UNIVERS</div>
-        <h2>Plusieurs facettes, une même identité.</h2>
-        <p class="subtext">
-          Des espaces différents, reliés par la même envie de créer.
-        </p>
-
-        <div class="cards">
-          <article class="card">
-            <div class="card-icon">♫</div>
-            <h3>Musique</h3>
-            <p>
-              Des sons, des atmosphères et des morceaux qui donnent
-              une forme à mes idées.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">⌘</div>
-            <h3>Projets</h3>
-            <p>
-              Des expériences web et des projets personnels
-              que je construis à mon rythme.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">月</div>
-            <h3>Inspirations</h3>
-            <p>
-              La nuit, le Japon, les lumières discrètes et les univers
-              qui gardent une part de mystère.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="creations">
-      <div class="container">
-        <div class="section-label">03 — À ÉCOUTER</div>
-        <h2>Une première trace sonore.</h2>
-        <p class="subtext">
-          Un morceau parmi les projets qui composent l’univers MATTYAS.
-        </p>
-
-        <div class="music">
-          <small>MATTYAS · MUSIQUE</small>
-          <h3>23h53</h3>
-          <p class="subtext">
-            Piano, ambiance nocturne et lumières lointaines.
-          </p>
-          <p class="subtext">
-            Lecteur audio à connecter : le morceau sera ajouté ici
-            avec son lien public.
-          </p>
-        </div>
-      </div>
+      <div class="featured-symbol" aria-hidden="true">23:53</div>
     </section>
   </main>
 
   <footer>
-    <div class="container footer-content">
-      <span>© <span id="year"></span> MATTYAS</span>
-      <span>Créé à ma manière · 自分の世界</span>
-    </div>
+    <a class="logo" href="index.html">MATTYAS<span>🌙</span></a>
+    <p>BLACK SKY · VIOLET LIGHT · QUIET MIND</p>
+    <p>© 2026 MATTYAS — Fait avec soin, après minuit.</p>
   </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
